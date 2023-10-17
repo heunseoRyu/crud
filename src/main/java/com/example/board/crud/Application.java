@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableJpaAuditing // jpa auditing 활성화
 // 2트 : 브랜치 바꿈
-// r
+// u
 public class Application {
 
 	public static void main(String[] args) {

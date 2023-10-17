@@ -31,6 +31,17 @@ public class RestController {
         return boardService.readBoard(id);
     }
 
+    @PatchMapping("/patch/{id}")
+    public BoardDTO patchMethod(
+            @PathVariable("id") Long id,
+            @RequestBody BoardDTO boardDTO
+    ){
+         return boardService.modifyBoard(id,boardDTO);
+    }
+
+
+
+
 
 
 

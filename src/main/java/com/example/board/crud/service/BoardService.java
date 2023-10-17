@@ -23,4 +23,18 @@ public class BoardService implements BoardServiceImpl {
         if (temp.isPresent()) return entityToDto(temp.get());
         return null;
     }
+
+    @Override
+    public BoardDTO modifyBoard(Long id,BoardDTO boardDTO){
+        Optional<BoardEntity> temp = boardRepository.findById(id);
+        if(temp.isPresent()){
+            BoardEntity boardEntity = temp.get();
+            boardEntity.changeTitle(boardDTO.getTitle());
+            boardEntity.changeContent(boardDTO.getContent());
+            boardRepository.save(boardEntity);
+            return entityToDto(boardEntity);
+        }
+        return null;
+
+    }
 }

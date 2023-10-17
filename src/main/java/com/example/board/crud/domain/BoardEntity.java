@@ -1,10 +1,7 @@
 package com.example.board.crud.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Builder
@@ -12,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@ToString
 public class BoardEntity extends BaseEntity{
 
     @Id
@@ -24,5 +22,11 @@ public class BoardEntity extends BaseEntity{
     @Column(length = 500,nullable = false)
     private String content;
 
+    public void changeTitle(String data){
+        this.title = data;
+    }
+    public void changeContent(String data){
+        this.content = data;
+    }
 
 }
