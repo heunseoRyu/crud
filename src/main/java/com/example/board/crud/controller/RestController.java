@@ -18,10 +18,9 @@ public class RestController {
     private BoardService boardService;
 
     @PostMapping("/post")
-    public BoardDTO postMethod(@RequestBody BoardDTO boardDTO){
+    public void postMethod(@RequestBody BoardDTO boardDTO){
         boardService.createBoard(boardDTO);
         log.info("mappingPath userId={}", boardDTO.getId());
-        return boardDTO;
     }
 
     @GetMapping("/get")
