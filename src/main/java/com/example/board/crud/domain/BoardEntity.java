@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString
 public class BoardEntity extends BaseEntity{
 
     @Id

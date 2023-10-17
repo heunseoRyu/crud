@@ -20,6 +20,7 @@ public class RestController {
     @PostMapping("/post")
     public BoardDTO postMethod(@RequestBody BoardDTO boardDTO){
         boardService.createBoard(boardDTO);
+        log.info("mappingPath userId={}", boardDTO.getId());
         return boardDTO;
     }
 
