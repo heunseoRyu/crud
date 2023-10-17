@@ -39,10 +39,9 @@ public class RestController {
          return boardService.modifyBoard(id,boardDTO);
     }
 
-
-
-
-
-
+    @DeleteMapping("/delete/{id}")
+    public BoardDTO deleteMethod(@PathVariable Long id){
+        return boardService.deleteBoard(id);
+    }
 
 }

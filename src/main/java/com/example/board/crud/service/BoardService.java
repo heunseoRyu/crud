@@ -37,4 +37,17 @@ public class BoardService implements BoardServiceImpl {
         return null;
 
     }
+
+    @Override
+    public BoardDTO deleteBoard(Long id){
+        Optional<BoardEntity> temp = boardRepository.findById(id);
+        if(temp.isPresent()){
+            boardRepository.delete(temp.get());
+            return entityToDto(temp.get());
+        }
+        return null;
+    }
+
+
+
 }

@@ -8,6 +8,8 @@ public interface BoardServiceImpl {
     public BoardDTO readBoard(Long id);
 
     public BoardDTO modifyBoard(Long id,BoardDTO boardDTO);
+
+    public BoardDTO deleteBoard(Long id);
     public default BoardEntity dtoToEntity(BoardDTO boardDTO){
         return BoardEntity.builder()
                 .title(boardDTO.getTitle())
