@@ -15,8 +15,8 @@ public class RestApiController { // 이름 변경
     private final BoardService boardService;
 
     @PostMapping("/post")
-    public String createBoard(@RequestBody BoardRequest boardRequest){
-        return boardService.createBoard(boardRequest);
+    public void createBoard(@RequestBody BoardRequest boardRequest){
+        boardService.createBoard(boardRequest);
     }
 
     @GetMapping("/get")
@@ -35,8 +35,8 @@ public class RestApiController { // 이름 변경
     }
 
     @DeleteMapping("/delete/{id}")
-    public BoardResponse deleteBoard(@PathVariable Long id){
-        return boardService.deleteBoard(id);
+    public void deleteBoard(@PathVariable Long id){
+        boardService.deleteBoard(id);
     }
 
 }

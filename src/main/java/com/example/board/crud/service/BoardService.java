@@ -13,15 +13,14 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
 
-    public String createBoard(BoardRequest boardRequest){
-        boardRepository.save(BoardRequest.dtoToEntity(boardRequest));
-        return "COMPLETED";
+    public void createBoard(BoardRequest boardRequest){
+        boardRepository.save(boardRequest.toEntity());
     }
 
     public BoardResponse readBoard(Long id){
         BoardEntity boardEntity = boardRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("id not found"));
-        return BoardResponse.entityToDto(boardEntity);
+        return BoardResponse.of(boardEntity);
     }
 
    
@@ -31,15 +30,14 @@ public class BoardService {
         boardEntity.changeTitle(boardRequest.getTitle());
         boardEntity.changeContent(boardRequest.getContent());
         boardRepository.save(boardEntity);
-        return BoardResponse.entityToDto(boardEntity);
+        return BoardResponse.of(boardEntity);
     }
 
     
-    public BoardResponse deleteBoard(Long id){
+    public void deleteBoard(Long id){
         BoardEntity boardEntity = boardRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("id not found"));
         boardRepository.delete(boardEntity);
-        return BoardResponse.entityToDto(boardEntity);
     }
 
 
