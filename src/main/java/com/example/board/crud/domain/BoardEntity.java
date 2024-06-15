@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Builder
 @Table(name = "tb_board")
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 public class BoardEntity extends BaseEntity{
 
@@ -28,4 +26,9 @@ public class BoardEntity extends BaseEntity{
         this.content = data;
     }
 
+    @Builder
+    public BoardEntity(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
